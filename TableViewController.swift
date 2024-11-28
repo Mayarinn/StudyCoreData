@@ -10,28 +10,12 @@ import UIKit
 class TableViewController: UITableViewController {
     
     var tasks: [String] = []
-    
-    var addButton: UIButton = {
-        let addButton = UIButton()
-        addButton.setTitle("Add", for: .normal)
-        addButton.layer.cornerRadius = 7
-        addButton.backgroundColor = .systemIndigo
-        addButton.setTitleColor(.purple, for: .highlighted)
-        //addPurchaseButton.addTarget(self, action: #selector(addPurchaseButtonClicked), for: .touchUpInside)
-        
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        return addButton
-    }()
+    @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
