@@ -34,9 +34,15 @@ class TableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func saveTaskFunc(withTitle title: String ) {
+    func saveTaskFunc(withTitle titleFunc: String ) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Tasks", in: context) else { return }
+    
+        let taskObject = Tasks(entity: entity, insertInto: context)
+        taskObject.title = titleFunc//as NSObject
+    
     }
     
     override func viewDidLoad() {
