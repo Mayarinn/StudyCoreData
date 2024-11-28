@@ -42,6 +42,12 @@ class TableViewController: UITableViewController {
     
         let taskObject = Tasks(entity: entity, insertInto: context)
         taskObject.title = titleFunc//as NSObject
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     
     }
     
