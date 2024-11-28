@@ -45,6 +45,7 @@ class TableViewController: UITableViewController {
         
         do {
             try context.save()
+            tasks.insert(taskObject, at: 0)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
