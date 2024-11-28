@@ -31,7 +31,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="qh9-8q-WUK"/>
+                    <navigationItem key="navigationItem" id="qh9-8q-WUK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ish-A3-qKS"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTd-0N-1Tg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
