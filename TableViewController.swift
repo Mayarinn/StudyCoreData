@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
     
-    var tasks: [String] = []
+    var tasks: [Tasks] = []
     
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
         
@@ -20,7 +21,7 @@ class TableViewController: UITableViewController {
         let saveTask = UIAlertAction(title: "Save", style: .default) { action in
             let tf = alertController.textFields?.first
             if let newTask = tf?.text {
-                self.tasks.insert(newTask, at: 0)
+                self.saveTaskFunc(withTitle: newTask)
                 self.tableView.reloadData()
             }
         }
@@ -31,6 +32,11 @@ class TableViewController: UITableViewController {
         alertController.addAction(cancel)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func saveTaskFunc(withTitle title: String ) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
     }
     
     override func viewDidLoad() {
