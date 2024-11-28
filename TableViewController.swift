@@ -41,7 +41,7 @@ class TableViewController: UITableViewController {
         guard let entity = NSEntityDescription.entity(forEntityName: "Tasks", in: context) else { return }
     
         let taskObject = Tasks(entity: entity, insertInto: context)
-        taskObject.title = titleFunc//as NSObject
+        taskObject.title = titleFunc
         
         do {
             try context.save()
@@ -49,6 +49,20 @@ class TableViewController: UITableViewController {
             print(error.localizedDescription)
         }
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        
+        do {
+            tasks = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     override func viewDidLoad() {
