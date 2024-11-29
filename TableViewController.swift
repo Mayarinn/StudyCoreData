@@ -63,6 +63,7 @@ class TableViewController: UITableViewController {
     
         let taskObject = Tasks(entity: entity, insertInto: context)
         taskObject.title = titleFunc
+        taskObject.index = Int16(tasks.count)
         
         do {
             try context.save()
@@ -82,6 +83,16 @@ class TableViewController: UITableViewController {
         
         do {
             tasks = try context.fetch(fetchRequest)
+            
+            for i in (0...tasks.count-2) {
+                for j in (i+1...tasks.count-1) {
+                    if tasks[i].index < tasks[j].index {
+                        let buff = tasks[i]
+                        tasks[i] = tasks[j]
+                        tasks[j] = buff
+                    }
+                }
+            }
         } catch let error as NSError {
             print(error.localizedDescription)
         }
