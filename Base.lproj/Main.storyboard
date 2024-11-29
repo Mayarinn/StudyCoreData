@@ -32,6 +32,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="toDoList" id="qh9-8q-WUK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="sKH-Xc-yve"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zdk-km-Tgg">
                             <connections>
                                 <action selector="addButtonClicked:" destination="s4f-Fx-WLu" id="JtR-nO-nJi"/>
